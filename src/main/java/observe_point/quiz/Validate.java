@@ -6,8 +6,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class Validate {
 
-    @Step("Response's'status code {code} for endpoint : {URL}")
-    public static void response_status_code(String URL, int code) {
+    @Step("Response's'status code {code} for endpoint : {endpoint}")
+    public static void response_status_code(String endpoint, int code) {
         int actualCode = RestApiClient.responseAsObject(URL).getStatusCode();
         assertThat(actualCode).isEqualTo(code);
     }
