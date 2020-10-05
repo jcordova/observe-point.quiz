@@ -6,7 +6,7 @@ I worked on this mini project during this past weekend as a job interview's quiz
 
 ## Requirements
 * JAVA 8 (JDK 8)
-* MAVEN or use Maven Wrapper (included)
+* MAVEN or Maven Wrapper (included)
 
 ## Main libraries
 * REST-Assured
