@@ -25,7 +25,7 @@ public class SearchForUnqualifiedPlayers {
         Validate.response_body_not_empty(endpoint);
 
         step("Search for Unqualified Players based on Weight and Height");
-        assertFalse("Not all Players were qualified for the Games.", all_players_were_qualified());
+        assertFalse("Not all Players qualified for the Games.", all_players_were_qualified());
     }
 
     private Boolean all_players_were_qualified() {
