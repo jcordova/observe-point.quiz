@@ -8,7 +8,7 @@ I worked on this mini project during this past weekend as a job interview's quiz
 * JAVA 8 (JDK 8)
 * MAVEN or Maven Wrapper (included)
 
-## Main libraries
+## Main Libraries
 * REST-Assured
 * Allure-Reports
 * JUnit 4
