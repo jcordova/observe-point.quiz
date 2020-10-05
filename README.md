@@ -1,6 +1,6 @@
 # observe-point.quiz
 
-This is a very basic project which demonstrate how test REST API service call (end-points) using Rest-Assured JAVA Library.  
+This is a very basic project which demonstrates how test REST API service call (end-points) using Rest-Assured JAVA Library.  
 
 I worked on this mini project during a weekend for a job interview's quiz.
 
