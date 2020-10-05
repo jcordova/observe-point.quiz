@@ -16,7 +16,7 @@ public class SearchForUnqualifiedPlayers {
     String endpoint = CoreConstant.RAPID_API_ENDPOINT;
 
     @Test
-    @Description("Check that in each game best Player has to weigh more than 200 pounds, height more than 5 feet, 10 inches")
+    @Description("Check that in each game best player has to weigh more than 200 pounds, height more than 5 feet, 10 inches.")
     public void search_for_unqualified_payers() {
         step("Validate Response's status code");
         Validate.response_status_code(endpoint, 200);
