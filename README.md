@@ -18,10 +18,10 @@ You are welcome to clone and run this project on your local sandbox.  Just follo
 
 * Clone repository
 
-```bash
+  ```bash
   git clone https://github.com/jcordova/observe-point.quiz.git
   cd observe-point.quiz
-```
+  ```
 
 * Pull all dependencies, build project, run test and create/access test report
 
@@ -53,9 +53,9 @@ You are welcome to clone and run this project on your local sandbox.  Just follo
   ``` 
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+  Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update test as appropriate.
+  Please make sure to update test as appropriate.
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+  [MIT](https://choosealicense.com/licenses/mit/)
