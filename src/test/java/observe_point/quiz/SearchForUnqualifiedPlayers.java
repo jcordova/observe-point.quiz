@@ -33,7 +33,7 @@ public class SearchForUnqualifiedPlayers {
 
         JsonPath jsonPathEvaluator = RestApiClient.responseAsJsonPath(endpoint);
         List<Integer> game_id = jsonPathEvaluator.get("data.id");
-        List<Integer> team_full_name = jsonPathEvaluator.get("data.player.first_name");
+        List<Integer> team_full_name = jsonPathEvaluator.get("data.player.full_name");
         List<Integer> player_first_name = jsonPathEvaluator.get("data.player.first_name");
         List<Integer> player_last_name = jsonPathEvaluator.get("data.player.last_name");
         List<Integer> weight_pounds = jsonPathEvaluator.get("data.player.weight_pounds");
