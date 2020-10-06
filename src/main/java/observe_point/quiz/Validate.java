@@ -8,7 +8,7 @@ public class Validate {
 
     @Step("Response's'status code {code} for endpoint : {endpoint}")
     public static void response_status_code(String endpoint, int code) {
-        int actualCode = RestApiClient.responseAsObject(URL).getStatusCode();
+        int actualCode = RestApiClient.responseAsObject(endpoint).getStatusCode();
         assertThat(actualCode).isEqualTo(code);
     }
 

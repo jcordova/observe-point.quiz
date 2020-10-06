@@ -54,7 +54,7 @@ public class SearchForUnqualifiedPlayers {
                         heightFT[i] = hf;
                         heightIN[i] = hi;
 
-                        if (wp != null && !wp.toString().isEmpty() && hf != null && !hf.toString().isEmpty()) {
+                        if (wp != null && !wp.toString().isEmpty() && hf != null && !hf.toString().isEmpty() && hi != null && !hi.toString().isEmpty()) {
                             if (wp <= 200 && hf <= 5 && hi <= 10) {
                                 System.out.println("\n");
                                 dt.setTitle("UNQUALIFIED PLAYER(s)");
