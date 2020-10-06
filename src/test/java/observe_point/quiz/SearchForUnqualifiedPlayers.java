@@ -43,12 +43,10 @@ public class SearchForUnqualifiedPlayers {
         List<Integer> height_inches = jsonPathEvaluator.get("data.player.height_inches");
 
         int i = 0;
-
         search: {
             for (Integer wp : weight_pounds) {
                 for (Integer hf : height_feet) {
                     for (Integer hi : height_inches) {
-
                         if (wp != null && !wp.toString().isEmpty() && hf != null && !hf.toString().isEmpty() && hi != null && !hi.toString().isEmpty()) {
                             if (wp <= 200 && hf <= 5 && hi <= 10) {
                                 System.out.println("\n");
