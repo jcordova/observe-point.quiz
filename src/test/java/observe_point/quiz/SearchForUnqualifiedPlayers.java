@@ -2,14 +2,15 @@ package observe_point.quiz;
 
 import com.cwjcsu.joutable.DefaultTable;
 import com.cwjcsu.joutable.DefaultTableFormatter;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
+import io.qameta.allure.Step;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.path.json.JsonPath;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static io.qameta.allure.Allure.step;
 import static org.junit.Assert.assertFalse;
 
 public class SearchForUnqualifiedPlayers {
@@ -17,19 +18,22 @@ public class SearchForUnqualifiedPlayers {
     String endpoint = CoreConstant.RAPID_API_ENDPOINT;
 
     @Test
+    @DisplayName("Search for unqualified game players.")
     @Description("Check that in each game best player has to weigh more than 200 pounds, height more than 5 feet, 10 inches.")
-    public void search_for_unqualified_payers() {
-        step("Validate Response's status code");
+    public void search_for_unqualified_game_players() {
+
+        Allure.step("Validate Response's status code");
         Validate.response_status_code(endpoint, 200);
 
-        step("Validate Response's body");
+        Allure.step("Validate Response's body");
         Validate.response_body_not_empty(endpoint);
 
-        step("Search for Unqualified Players based on Weight and Height");
-        assertFalse("Not all Players qualified for the Games.", all_players_were_qualified());
+        Allure.step("Search for Unqualified Players based on Weight and Height");
+        assertFalse("Not all Players qualified for the Games.", check_for_player_eligibility());
     }
 
-    private Boolean all_players_were_qualified() {
+    @Step
+    private Boolean check_for_player_eligibility() {
 
         DefaultTable dt = new DefaultTable();
 
