@@ -6,6 +6,7 @@ import io.qameta.allure.Description;
 import io.restassured.path.json.JsonPath;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static io.qameta.allure.Allure.step;
@@ -29,10 +30,11 @@ public class SearchForUnqualifiedPlayers {
     }
 
     private Boolean all_players_were_qualified() {
+
         DefaultTable dt = new DefaultTable();
 
         JsonPath jsonPathEvaluator = RestApiClient.responseAsJsonPath(endpoint);
-        List<Integer> game_id = jsonPathEvaluator.get("data.id");
+        List<Integer> game_id = jsonPathEvaluator.get("data.game.id");
         List<Integer> team_full_name = jsonPathEvaluator.get("data.team.full_name");
         List<Integer> player_first_name = jsonPathEvaluator.get("data.player.first_name");
         List<Integer> player_last_name = jsonPathEvaluator.get("data.player.last_name");
@@ -40,30 +42,23 @@ public class SearchForUnqualifiedPlayers {
         List<Integer> height_feet = jsonPathEvaluator.get("data.player.height_feet");
         List<Integer> height_inches = jsonPathEvaluator.get("data.player.height_inches");
 
-        Integer[] weight = new Integer[weight_pounds.size()];
-        Integer[] heightFT = new Integer[height_feet.size()];
-        Integer[] heightIN = new Integer[height_inches.size()];
-
         int i = 0;
+
         search: {
             for (Integer wp : weight_pounds) {
                 for (Integer hf : height_feet) {
                     for (Integer hi : height_inches) {
-
-                        weight[i] = wp;
-                        heightFT[i] = hf;
-                        heightIN[i] = hi;
 
                         if (wp != null && !wp.toString().isEmpty() && hf != null && !hf.toString().isEmpty() && hi != null && !hi.toString().isEmpty()) {
                             if (wp <= 200 && hf <= 5 && hi <= 10) {
                                 System.out.println("\n");
                                 dt.setTitle("UNQUALIFIED PLAYER(s)");
                                 dt.setHeaders(new String[] { "ID", "NAME", "DETAIL" });
-                                dt.addRow(new Object[] { 1, "GAME_ID", game_id.get(i)});
-                                dt.addRow(new Object[] { 2, "TEAM_NAME", team_full_name.get(i) });
-                                dt.addRow(new Object[] { 3, "PLAYER_NAME", player_first_name.get(i) + " " + player_last_name.get(i) });
-                                dt.addRow(new Object[] { 4, "WEIGHT", weight_pounds.get(i) });
-                                dt.addRow(new Object[] { 5, "HEIGHT", height_feet.get(i) + " FT, " + height_inches.get(i) + " INCHES" });
+                                dt.addRow(new Object[] { 1, "GAME ID", game_id.get(i)});
+                                dt.addRow(new Object[] { 2, "TEAM's NAME", team_full_name.get(i)});
+                                dt.addRow(new Object[] { 3, "PLAYER's NAME", player_first_name.get(i) + " " + player_last_name.get(i)});
+                                dt.addRow(new Object[] { 4, "WEIGHT IN POUNDS", weight_pounds.get(i)});
+                                dt.addRow(new Object[] { 5, "HEIGHT", height_feet.get(i) + " FEET, " + height_inches.get(i) + " INCHES" });
                                 DefaultTableFormatter dtf = new DefaultTableFormatter(100, 2);
                                 System.out.println(dtf.format(dt));
                                 break search;
